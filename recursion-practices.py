@@ -65,3 +65,59 @@ def power_of_number(n: int, exp: int, sign: int) -> int:
 
 print(power_of_number(2, 4, 1))
 print(power_of_number(2, 4, -1))
+
+
+ 3. Find the GCD (Greatest Common Divisor) of two numbers using recursion.
+
+# Planning Stage:
+
+# The function is given numbers, and we have to find the biggest numbers that divide each of them
+
+def GCD_iter(x, y):
+    pass
+
+def find_GCD(x: int, y: int) -> int:
+    """Takes two inputs and finds the greatest common divisor.
+
+    Args:
+        x ([int]): Integer 1
+        y ([int]): Integer 2
+
+    Returns:
+        int: The greatest common divisor of the two given integers
+    """
+    assert int(x) == x and int(y) == y, "The given numbers should be an integer."
+    if x < 0:
+        x *= -1
+    elif y < 0:
+        y *= -1
+    elif x % y == 0:
+        return y
+    else:
+        return find_GCD(y, x % y)
+
+(print(find_GCD(8, 12)))
+(print(find_GCD(48, 18)))
+(print(find_GCD(-81, 72)))
+(print(find_GCD(12, -10)))
+
+
+
+
+# 4. Convert a number from Decimal to Binary using recursion.
+
+# Planning Stage:
+
+# What dictates the end of the program?
+#   - If n is 0
+
+
+def dec_to_bin(n: int) -> int:
+    assert n >= 0 and int(n) == n, "Given integer should be a positive number. Two's Complement is not reproducible here."
+    if n == 0:
+        return 0
+    else:
+        return n % 2 + 10 * dec_to_bin(int(n/2))
+
+print(dec_to_bin(10))
+print(dec_to_bin(19999))
