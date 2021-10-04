@@ -67,7 +67,9 @@ print(power_of_number(2, 4, 1))
 print(power_of_number(2, 4, -1))
 
 
- 3. Find the GCD (Greatest Common Divisor) of two numbers using recursion.
+
+
+# 3. Find the GCD (Greatest Common Divisor) of two numbers using recursion.
 
 # Planning Stage:
 
@@ -121,3 +123,5 @@ def dec_to_bin(n: int) -> int:
 
 print(dec_to_bin(10))
 print(dec_to_bin(19999))
+
+
