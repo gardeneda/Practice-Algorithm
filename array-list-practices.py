@@ -74,5 +74,43 @@ print(linear_search(myArray, 9))
 
 Array4 =  np.array([1, 20, 30, 44, 5, 56, 57, 8, 9, 10, 31, 12, 13, 14, 35, 16, 27, 58, 19, 21])
 
-def findMaxProduct(array):
-    pass
+def findMaxProduct(array) -> list:
+    """finds the max product that can be achieved with the postiive integers in a one-dimiensional array.
+
+    Args:
+        array ([numpy array]): One-dimensional array with positive integers.
+
+    Returns:
+        list: Returns the two integers and the maximum product in a list, in order. [n1, n2, max_product]
+    """
+    max_product = 0
+    for i in range(len(array)):
+        for j in range(i + 1, len(array)):
+            product = array[i] * array[j]
+            if product > max_product:
+                max_product = product
+                num1 = array[i]
+                num2 = array[j]
+
+    return [num1, num2, max_product]
+
+print(findMaxProduct(Array4))
+
+
+# The above is a 'brute force' method of doing this. O(n^2) time complexity; so not time efficient.
+
+# A better way to do this is to probably find the two maximum values in the array
+# And then to multiply them together.
+
+def findMaxProduct2(Array4):
+    first_maxvalue = np.amax(Array4)
+    Array4 = Array4[Array4 != first_maxvalue]
+    second_maxvalue = np.amax(Array4)
+    max_product = first_maxvalue * second_maxvalue
+
+    return [first_maxvalue, second_maxvalue, max_product]
+
+print(f"This is the more optimized version of findMaxProduct: {findMaxProduct2(Array4)}")
+
+# The above follows a time complexity of O(mn), which has a better time complexity than the one above.
+
