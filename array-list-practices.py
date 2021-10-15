@@ -114,3 +114,61 @@ print(f"This is the more optimized version of findMaxProduct: {findMaxProduct2(A
 
 # The above follows a time complexity of O(mn), which has a better time complexity than the one above.
 
+
+# 5 Implement an algorithm to determine if a list has all unique characters, using python list.
+
+myList = [1, 20, 30, 44, 5, 56, 57, 8, 19, 10, 31, 12 ,13, 14, 35, 16, 27, 58, 19, 21]
+
+def searchDuplicate(list) -> bool:
+    """Returns True if duplicate item is found within list
+    
+
+    Args:
+        list: a list of arbitrary size.
+
+    Returns:
+        bool: True if duplicate item exists within list, otherwise False
+    """
+
+    new_list = []
+    for items in list:
+        if items not in new_list:
+            new_list.append(items)
+        else:
+            return True
+    return False
+
+print(searchDuplicate(myList))
+
+# More optimized code below.
+
+def searchDuplicate2(list) -> bool:
+    """Returns True if duplicate item is found within list
+
+    Args:
+        list: a list of arbitrary size.
+
+    Returns:
+        bool: True if duplicate item exists within list, otherwise False
+    """
+    for items in list:
+        if list.count(items) > 1:
+            return True
+    return False
+
+print(searchDuplicate2(myList))
+
+# Using O(nlogn) to make the search faster.
+# The sorting algorithm that Python uses is n log n.
+
+def searchDuplicate3(list):
+    list.sort()
+    for i in range(0,len(list)-1):
+        if list[i] == list[i+1]:
+            return True
+    return False
+
+(print(searchDuplicate3(myList)))
+
+# 6 Permutation
+
